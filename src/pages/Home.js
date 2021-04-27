@@ -401,8 +401,11 @@ class Home extends Component {
                       <div key={i} className={styles.Data}>
                         <ul>
                           {<li>{item["hashtag"]}</li>}
+                          {<li>{''}</li>}
                           {<li>{item2["text"]}</li>}
+                          {<li>{''}</li>}
                           {<li>{item2["user"]["location"]}</li>}
+                          {<li>{''}</li>}
                           {<li>{moment(item2["created_at"]).format("LL")}</li>}
                           {
                             <li>
