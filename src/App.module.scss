@@ -95,34 +95,10 @@ body {
           flex-direction: row;
           justify-content: space-between;
 
-          li:nth-child(1) {
-            position: relative;
-            // left: 1px;
-          }
-
-          li:nth-child(2) {
-            position: relative;
-            // left: 115px;
-          }
-
-          li:nth-child(3) {
-            position: relative;
-            // left: 105px;
-          }
-
-          li:nth-child(4) {
-            position: relative;
-            // left: 60px;
-          }
         }
 
-        li {
-          display: flex;
-          // align-items: center;
-          // width: 15%;
-          // justify-content: center;
-        }
       }
+
       h2 {
         text-align: center;
       }
@@ -596,10 +572,16 @@ body {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      width: 1000px;
+      // width: 1000px;
       position: relative;
-      left: 80px;
+      // left: 80px;
       bottom: 20px;
+      margin-left: 4.5rem;
+      width: 75%;
+
+      @media only screen and (max-width: $medium) {
+        width: 75%;
+      }
 
       .singleFilter {
         display: flex;
@@ -609,7 +591,6 @@ body {
         position: relative;
         justify-content: center;
         align-content: center;
-        margin-right: 50px;
       }
       .Arrow {
         color: #707070;
@@ -640,8 +621,7 @@ body {
           left: 3px;
         }
         @media only screen and (max-width: $medium) {
-          // position: relative;
-          // left: -15px;
+          position: relative;
         }
       }
 
@@ -660,7 +640,6 @@ body {
         }
         @media only screen and (max-width: $medium) {
           position: relative;
-          // left: 229px;
         }
       }
       .singleFilter:nth-child(3) {
@@ -676,7 +655,9 @@ body {
           position: relative;
           left: 3px;
         }
-
+        @media only screen and (max-width: $medium) {
+          position: relative;
+        }
       }
 
       .singleFilter:nth-child(4) {
@@ -692,6 +673,9 @@ body {
           position: relative;
           left: 3px;
         }
+        @media only screen and (max-width: $medium) {
+          position: relative;
+        }
       }
 
       .singleFilter:nth-child(5) {
@@ -702,11 +686,13 @@ body {
         position: relative;
         justify-content: center;
         align-content: center;
-        font-size: 3vm;
 
         .Arrow {
           position: relative;
           left: 3px;
+        }
+        @media only screen and (max-width: $medium) {
+          position: relative;
         }
       }
     }
