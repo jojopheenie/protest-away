@@ -464,19 +464,19 @@ body {
         font-family: arial;
         font-weight: bold;
         padding-left: 5.5rem;
-        .TweetsButton {
+        .SelectedButton {
           padding-left: 1rem;
         }
-        .IncidentsButton {
+        .UnselectedButton {
           color: #707070;
           border-bottom: 15px solid #c4c4c4;
         }
-        .TweetsButton {
+        .SelectedButton {
           border-bottom: 15px solid #fbee1f;
           width: 179.58px;
         }
-        .TweetsButton,
-        .IncidentsButton {
+        .SelectedButton,
+        .UnselectedButton {
           height: 2.875rem;
           display: flex;
           justify-content: center;

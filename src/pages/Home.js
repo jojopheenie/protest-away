@@ -331,14 +331,14 @@ class Home extends Component {
               <div className={styles.TweetsAndIncidentsButtonsContainer}>
                 <div
                   onClick={() => this.incidentsClickHandler()}
-                  className={styles.IncidentsButton}
+                  className={styles.UnselectedButton}
                 >
                   REPORTED INCIDENTS
                 </div>
 
                 <div
                   onClick={() => this.tweetsClickHandler()}
-                  className={styles.TweetsButton}
+                  className={styles.SelectedButton}
                 >
                   TWITTER POSTS
                 </div>
@@ -347,14 +347,14 @@ class Home extends Component {
               <div className={styles.TweetsAndIncidentsButtonsContainer}>
                 <div
                   onClick={() => this.incidentsClickHandler()}
-                  className={styles.IncidentsButton}
+                  className={styles.SelectedButton}
                 >
                   REPORTED INCIDENTS
                 </div>
 
                 <div
                   onClick={() => this.tweetsClickHandler()}
-                  className={styles.TweetsButton}
+                  className={styles.UnselectedButton}
                 >
                   TWITTER POSTS
                 </div>
