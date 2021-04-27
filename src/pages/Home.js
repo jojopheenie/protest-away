@@ -152,7 +152,7 @@ class Home extends Component {
     var categoryAndStateFilteredData = [];
     if (stateFilter != "None") {
       for (var i = 0; i < categoryFilteredData.length; i++) {
-        if (categoryFilteredData[i].state == stateFilter) {
+        if (categoryFilteredData[i].event_state == stateFilter) {
           categoryAndStateFilteredData.push(categoryFilteredData[i]);
         }
       }
@@ -228,6 +228,12 @@ class Home extends Component {
       "Media Coverage",
       "Immigration",
       "Economic Justice",
+      "Hate Crimes",
+      "Vandalism",
+      "Sexual Harassment",
+      "Verbal Harassment",
+      "Domestic Violence",
+      "Physical Abuse",
       "Other",
     ];
   }
@@ -588,6 +594,7 @@ class Home extends Component {
       "#blacktechtwitter",
       "#saytheirnames",
       "#nojusticenopeace",
+      "#stopaapihate"
     ];
     // Mapping from hashtag to array of tweets
     var tweetsMap = [];
