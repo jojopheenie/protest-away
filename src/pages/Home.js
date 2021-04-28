@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import {incidentTypes} from "./ReportAnIncident.js";
 
 const stateAbb = {
   "None": "None",
@@ -215,29 +216,6 @@ class Home extends Component {
     this.setState({ filteredData: categoryStateCityDate1AndDate2FilteredData });
   };
 
-  getIncidentTypes() {
-    return [
-      "None",
-      "Police Accountability",
-      "Corporate Accountability",
-      "Criminal Justice Policy",
-      "Education",
-      "Employment Discrimination",
-      "Wrongful Imprisonment",
-      "Racist Advertisement",
-      "Media Coverage",
-      "Immigration",
-      "Economic Justice",
-      "Hate Crimes",
-      "Vandalism",
-      "Sexual Harassment",
-      "Verbal Harassment",
-      "Domestic Violence",
-      "Physical Abuse",
-      "Other",
-    ];
-  }
-
   render() {
     let dummyHashtagData = [
       { name: "#blacklivesmatter", val: 1004957 },
@@ -245,8 +223,8 @@ class Home extends Component {
       { name: "#racism", val: 57263 },
       { name: "#stopAAPIhate", val: 33495 },
     ];
-
-    var types = this.getIncidentTypes();
+   
+    var types = incidentTypes;
     var states = this.getStates();
     var formData =
       this.state.categoryFilter != "None" ||
@@ -441,6 +419,7 @@ class Home extends Component {
                 <label>
                   Incident&nbsp;
                   <select name="categoryFilter" onChange={this.handleFilter}>
+                    <option value="None">None</option>
                     {types.map((type) => (
                       <option key={type} value={type}>
                         {type}

@@ -67,7 +67,6 @@ class Report extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.getIncidentTypes = this.getIncidentTypes.bind(this);
     this.getStates = this.getStates.bind(this);
     this.getCommunities = this.getCommunities.bind(this);
   }
@@ -165,26 +164,8 @@ class Report extends Component {
     }
   }
 
-  getIncidentTypes() {
-    return [
-      "Police Accountability",
-      "Corporate Accountability",
-      "Criminal Justice Policy",
-      "Education",
-      "Employment Discrimination",
-      "Wrongful Imprisonment",
-      "Racist Advertisement",
-      "Media Coverage",
-      "Immigration",
-      "Economic Justice",
-      "Sexual Assault",
-      "Domestic Violence",
-      "Other",
-    ];
-  }
-
   render() {
-    var types = this.getIncidentTypes();
+    var types = incidentTypes;
     var states = this.getStates();
     var communities = this.getCommunities();
     var submitted = this.state.submitted;
@@ -773,5 +754,29 @@ class Report extends Component {
     ];
   }
 }
+
+export let incidentTypes = [
+      "Police Accountability",
+      "Corporate Accountability",
+      "Criminal Justice Policy",
+      "Education",
+      "Employment Discrimination",
+      "Wrongful Imprisonment",
+      "Racist Advertisement",
+      "Media Coverage",
+      "Immigration",
+      "Economic Justice",
+      "Sexual Assault",
+      "Domestic Violence",
+      "Physical Abuse",
+      "Physical Assault",
+      "Verbal Harrassment",
+      "Shunning",
+      "Civil Rights Violation",
+      "Workplace Discrimination",
+      "Refusal of Service",
+      "Online Harrassment",
+      "Other",
+    ];
 
 export default Report;
