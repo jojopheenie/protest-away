@@ -68,7 +68,6 @@ class Report extends Component {
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.getStates = this.getStates.bind(this);
-    this.getCommunities = this.getCommunities.bind(this);
   }
 
   handleChange = (event) => {
@@ -122,7 +121,6 @@ class Report extends Component {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          communities: this.state.communities,
           event_category: this.state.event_category,
           event_date: this.state.event_date,
           event_state: this.state.event_state,
@@ -167,7 +165,7 @@ class Report extends Component {
   render() {
     var types = incidentTypes;
     var states = this.getStates();
-    var communities = this.getCommunities();
+    var communities = communitiesList;
     var submitted = this.state.submitted;
     var formData = {
       event_category: this.state.event_category,
@@ -726,33 +724,6 @@ class Report extends Component {
       "Wyoming",
     ];
   }
-
-  getCommunities() {
-    return [
-      "Asian Americans/Pacific Islanders",
-      "Black Americans",
-      "Whites",
-      "Police Reform",
-      "Mental Health",
-      "LGBTQIA+",
-      "Immigration",
-      "Disabilities",
-      "Islam",
-      "Judaism",
-      "Hispanic",
-      "Environmentalism",
-      "Civic Engagement",
-      "Voting",
-      "Native Americans",
-      "Women",
-      "Men",
-      "Social Class",
-      "Intersectional",
-      "Criminal Justice",
-      "Children's Rights",
-      "Education",
-    ];
-  }
 }
 
 export let incidentTypes = [
@@ -777,6 +748,31 @@ export let incidentTypes = [
       "Refusal of Service",
       "Online Harrassment",
       "Other",
+    ];
+
+export let communitiesList = [
+      "Asian Americans/Pacific Islanders",
+      "Black Americans",
+      "Whites",
+      "Police Reform",
+      "Mental Health",
+      "LGBTQIA+",
+      "Immigration",
+      "Disabilities",
+      "Islam",
+      "Judaism",
+      "Hispanic",
+      "Environmentalism",
+      "Civic Engagement",
+      "Voting",
+      "Native Americans",
+      "Women",
+      "Men",
+      "Social Class",
+      "Intersectional",
+      "Criminal Justice",
+      "Children's Rights",
+      "Education",
     ];
 
 export default Report;

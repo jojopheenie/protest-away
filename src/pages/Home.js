@@ -4,7 +4,24 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-import {incidentTypes} from "./ReportAnIncident.js";
+import {incidentTypes, communitiesList} from "./ReportAnIncident.js";
+import Input from "@material-ui/core/Input";
+import MenuItem from "@material-ui/core/MenuItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import Select from "@material-ui/core/Select";
+import Checkbox from "@material-ui/core/Checkbox";
+import reportstyles from "../../src/Report.module.scss";
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250
+    }
+  }
+};
 
 const stateAbb = {
   "None": "None",
@@ -80,6 +97,7 @@ class Home extends Component {
       cityFilter: "",
       afterDateFilter: "",
       beforeDateFilter: "",
+      communitiesFilter: "None",
       tweets: this.getTweets(),
       selected: "incidents" | "tweets",
     };
@@ -110,6 +128,7 @@ class Home extends Component {
     this.setState({ [name]: value });
 
     var categoryFilter = this.state.categoryFilter;
+    var communitiesFilter = this.state.communitiesFilter;
     var stateFilter = this.state.stateFilter;
     var cityFilter = this.state.cityFilter;
     var afterDateFilter = this.state.afterDateFilter;
@@ -117,6 +136,8 @@ class Home extends Component {
 
     if (name == "categoryFilter") {
       categoryFilter = value;
+    } else if (name == "communitiesFilter") {
+      communitiesFilter = value;
     } else if (name == "stateFilter") {
       stateFilter = value;
     } else if (name == "cityFilter") {
@@ -213,7 +234,18 @@ class Home extends Component {
       categoryStateCityDate1AndDate2FilteredData = categoryStateCityAndDate1FilteredData;
     }
 
-    this.setState({ filteredData: categoryStateCityDate1AndDate2FilteredData });
+    // Community
+    var categoryStateCityDate1Date2AndCommunityFilteredData = [];
+    if (communitiesFilter != "None") {
+      for (var i = 0; i < categoryStateCityDate1AndDate2FilteredData.length; i++) {
+        if (categoryStateCityDate1AndDate2FilteredData[i].communities.includes(communitiesFilter)) {
+          categoryStateCityDate1Date2AndCommunityFilteredData.push(categoryStateCityDate1AndDate2FilteredData[i]);
+        }
+      }
+    } else {
+      categoryStateCityDate1Date2AndCommunityFilteredData = categoryStateCityDate1AndDate2FilteredData;
+    }
+    this.setState({ filteredData: categoryStateCityDate1Date2AndCommunityFilteredData });
   };
 
   render() {
@@ -225,9 +257,11 @@ class Home extends Component {
     ];
    
     var types = incidentTypes;
+    var communities = communitiesList;
     var states = this.getStates();
     var formData =
       this.state.categoryFilter != "None" ||
+      this.state.communitiesFilter != "None" ||
       this.state.stateFilter != "None" ||
       this.state.cityFilter != "" ||
       this.state.afterDateFilter != "" ||
@@ -421,6 +455,17 @@ class Home extends Component {
                   <select name="categoryFilter" onChange={this.handleFilter}>
                     <option value="None">None</option>
                     {types.map((type) => (
+                      <option key={type} value={type}>
+                        {type}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label>
+                  Community&nbsp;
+                  <select name="communitiesFilter" onChange={this.handleFilter}>
+                    <option value="None">None</option>
+                    {communities.map((type) => (
                       <option key={type} value={type}>
                         {type}
                       </option>
