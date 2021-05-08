@@ -6,6 +6,7 @@ import "../../node_modules/react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker.css";
 import { v4 as uuidv4 } from "uuid";
 import coc from "./coc.png";
+import AAAJ from "./AAAJ.png"
 import Input from "@material-ui/core/Input";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -175,6 +176,9 @@ class Report extends Component {
       event_description: this.state.event_description,
     };
     var sharedToOrg = this.state.share_to_org;
+
+
+    console.log('this.state.communities!!!!!!', this.state.communities)
     return !submitted ? (
       <div className={reportstyles.floatContainer}>
         <div className={reportstyles.sideBar}>hello</div>
@@ -598,18 +602,34 @@ class Report extends Component {
           The incident has been shared with the civic organizations listed
           below.
         </p>
-        <div className={styles.FormIcons}>
-          <img src={coc} height={93} width={93} />
-        </div>
-        <div>
-          <strong>Color of Change</strong>
-          <p>Location: Oakland, CA</p>
-          <p>
-            <a href={"https://colorofchange.org/"} target="_blank">
-              Visit Website
-            </a>
-          </p>
-        </div>
+        {this.state.communities[0] === "Black Americans" ? (
+                  <div className={styles.FormIcons}>
+                  <img src={coc} height={93} width={93} />
+                <div>
+                  <strong>Color of Change</strong>
+                  <p>Location: Oakland, CA</p>
+                  <p>
+                    <a href={"https://colorofchange.org/"} target="_blank">
+                      Visit Website
+                    </a>
+                  </p>
+                </div>
+                </div>
+        ) : ("")}
+                {this.state.communities[0] === "Asian Americans/Pacific Islanders" ? (
+                  <div className={styles.FormIcons}>
+                  <img src={AAAJ} height={93} width={93} />
+                <div>
+                  <strong>Asian Americans Advancing Justice</strong>
+                  <p>
+                    <a href={"https://www.advancingjustice-aajc.org/"} target="_blank">
+                      Visit Website
+                    </a>
+                  </p>
+                </div>
+                </div>
+        ) : ("")}
+
         {
           <Link
             to={{
@@ -633,18 +653,33 @@ class Report extends Component {
           {" "}
           You may contact the civic organizations listed below to take action.
         </p>
-        <div>
-          <img src={coc} height={93} width={93} />
-        </div>
-        <div>
-          <strong>Color of Change</strong>
-          <p>Location: Oakland, CA</p>
-          <p>
-            <a href={"https://colorofchange.org/"} target="_blank">
-              Visit Website
-            </a>
-          </p>
-        </div>
+        {this.state.communities[0] === "Black Americans" ? (
+                  <div className={styles.FormIcons}>
+                  <img src={coc} height={93} width={93} />
+                <div>
+                  <strong>Color of Change</strong>
+                  <p>Location: Oakland, CA</p>
+                  <p>
+                    <a href={"https://colorofchange.org/"} target="_blank">
+                      Visit Website
+                    </a>
+                  </p>
+                </div>
+                </div>
+        ) : ("")}
+                {this.state.communities[0] === "Asian Americans/Pacific Islanders" ? (
+                  <div className={styles.FormIcons}>
+                  <img src={AAAJ} height={93} width={93} />
+                <div>
+                  <strong>Asian Americans Advancing Justice</strong>
+                  <p>
+                    <a href={"https://www.advancingjustice-aajc.org/"} target="_blank">
+                      Visit Website
+                    </a>
+                  </p>
+                </div>
+                </div>
+        ) : ("")}
         {
           <Link
             to={{
