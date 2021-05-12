@@ -177,8 +177,6 @@ class Report extends Component {
     };
     var sharedToOrg = this.state.share_to_org;
 
-
-    console.log('this.state.communities!!!!!!', this.state.communities)
     return !submitted ? (
       <div className={reportstyles.floatContainer}>
         <div className={reportstyles.sideBar}>hello</div>
